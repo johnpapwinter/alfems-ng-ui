@@ -9,6 +9,7 @@ import {MenuModule} from "primeng/menu";
 import {MenubarModule} from "primeng/menubar";
 import { RegistryComponent } from './components/registry/registry.component';
 import { AddShipComponent } from './components/add-ship/add-ship.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AddShipComponent } from './components/add-ship/add-ship.component';
     DashboardComponent,
     HomeComponent,
     RegistryComponent,
-    AddShipComponent
+    AddShipComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
