@@ -5,6 +5,7 @@ import {HomeComponent} from "./components/home/home.component";
 import {AddShipComponent} from "./components/add-ship/add-ship.component";
 import {RegistryComponent} from "./components/registry/registry.component";
 import {LoginComponent} from "./components/login/login.component";
+import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, pathMatch: "full" },
   { path: 'registry', component: RegistryComponent, pathMatch: "full" },
   { path: 'add-ship', component: AddShipComponent, pathMatch: "full" },
+  { path: '**', component: PageNotFoundComponent, pathMatch: "full" },
 ]
 
 @NgModule({

@@ -16,6 +16,7 @@ import {ChipsModule} from "primeng/chips";
 import {PasswordModule} from "primeng/password";
 import {ButtonModule} from "primeng/button";
 import {HttpClientModule} from "@angular/common/http";
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {HttpClientModule} from "@angular/common/http";
     HomeComponent,
     RegistryComponent,
     AddShipComponent,
-    LoginComponent
+    LoginComponent,
+    PageNotFoundComponent
   ],
     imports: [
         BrowserModule,
