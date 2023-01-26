@@ -19,9 +19,9 @@ export class DashboardComponent {
         routerLink: ['/registry'],
       },
       {
-        label: 'Add Vessel',
+        label: 'Add',
         routerLink: ['/add-ship'],
-      }
+      },
     ]
   }
 }

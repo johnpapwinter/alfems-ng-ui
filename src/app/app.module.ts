@@ -10,6 +10,12 @@ import {MenubarModule} from "primeng/menubar";
 import { RegistryComponent } from './components/registry/registry.component';
 import { AddShipComponent } from './components/add-ship/add-ship.component';
 import { LoginComponent } from './components/login/login.component';
+import {CardModule} from "primeng/card";
+import {ReactiveFormsModule} from "@angular/forms";
+import {ChipsModule} from "primeng/chips";
+import {PasswordModule} from "primeng/password";
+import {ButtonModule} from "primeng/button";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -20,12 +26,18 @@ import { LoginComponent } from './components/login/login.component';
     AddShipComponent,
     LoginComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MenuModule,
-    MenubarModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        MenuModule,
+        MenubarModule,
+        CardModule,
+        ReactiveFormsModule,
+        ChipsModule,
+        PasswordModule,
+        ButtonModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
