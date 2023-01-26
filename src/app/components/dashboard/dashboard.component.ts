@@ -26,6 +26,11 @@ export class DashboardComponent implements OnInit {
         label: 'Add',
         routerLink: ['/add-ship'],
       },
+      {
+        label: 'Logout',
+        routerLink: ['login'],
+        command: () => localStorage.clear(),
+      }
     ]
   }
 }
