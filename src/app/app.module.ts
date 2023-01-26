@@ -15,8 +15,10 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {ChipsModule} from "primeng/chips";
 import {PasswordModule} from "primeng/password";
 import {ButtonModule} from "primeng/button";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import {TabMenuModule} from "primeng/tabmenu";
+import {JwtInterceptor} from "./core/interceptors/jwt.interceptor";
 
 @NgModule({
   declarations: [
@@ -28,19 +30,22 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     LoginComponent,
     PageNotFoundComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        MenuModule,
-        MenubarModule,
-        CardModule,
-        ReactiveFormsModule,
-        ChipsModule,
-        PasswordModule,
-        ButtonModule
-    ],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MenuModule,
+    MenubarModule,
+    CardModule,
+    ReactiveFormsModule,
+    ChipsModule,
+    PasswordModule,
+    ButtonModule,
+    TabMenuModule
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

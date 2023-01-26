@@ -1,1 +1,31 @@
-<p>registry works!</p>
+<table>
+  <thead>
+    <tr>
+      <th>HUD</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Crew</th>
+      <th>Pass</th>
+      <th>Ftr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ship of registry; index as i">
+      <td>{{ ship.hud }}</td>
+      <td>{{ ship.name }}</td>
+      <td>{{ ship.type }}</td>
+      <td>{{ ship.crew }}</td>
+      <td>{{ ship.passengers }}</td>
+      <td>{{ ship.fighters }}</td>
+      <td>
+        <button>Edit</button>
+      </td>
+      <td>
+        <button>Remove</button>
+      </td>
+    </tr>
+    <tr *ngIf="registry.length === 0">
+      <p>The registry is empty</p>
+    </tr>
+  </tbody>
+</table>

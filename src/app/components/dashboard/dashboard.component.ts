@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../core/services/auth.service";
+import {MenuItem} from "primeng/api";
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +8,7 @@ import {AuthService} from "../../core/services/auth.service";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  items: any;
+  items: MenuItem[] = [];
 
   constructor(public authService: AuthService) {
   }
