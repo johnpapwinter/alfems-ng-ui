@@ -14,7 +14,6 @@ export class AuthService {
               private http: HttpClient) { }
 
   loginRequest(credentials: LoginRequestDto) {
-    console.log(`Username: ${credentials.username}, password: ${credentials.password}`);
     this.http.post<JwtResponseDto>(`${this.rootUrl}/login`, credentials).subscribe(res => {
       this.storeToken(res.access_token);
       this.router.navigateByUrl('home')

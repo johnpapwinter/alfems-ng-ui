@@ -1,31 +1,52 @@
-<table>
-  <thead>
-    <tr>
-      <th>HUD</th>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Crew</th>
-      <th>Pass</th>
-      <th>Ftr</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let ship of registry; index as i">
-      <td>{{ ship.hud }}</td>
-      <td>{{ ship.name }}</td>
-      <td>{{ ship.type }}</td>
-      <td>{{ ship.crew }}</td>
-      <td>{{ ship.passengers }}</td>
-      <td>{{ ship.fighters }}</td>
-      <td>
-        <button>Edit</button>
-      </td>
-      <td>
-        <button>Remove</button>
-      </td>
-    </tr>
-    <tr *ngIf="registry.length === 0">
-      <p>The registry is empty</p>
-    </tr>
-  </tbody>
-</table>
+<div class="p-card">
+  <p-table [value]="page.items"
+           styleClass="p-datatable-striped"
+           [tableStyle]="{'min-width': '50rem'}"
+           [lazy]="true"
+           [paginator]="true"
+           (onLazyLoad)="loadPage($event)"
+           [(first)]="first"
+           [rows]="rowsPerPage"
+           [totalRecords]="page.meta.totalItems"
+           [showCurrentPageReport]="true"
+           currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+           [rowsPerPageOptions]="[5,10,25,50]"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>HUD</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Crew</th>
+        <th>Pass</th>
+        <th>Ftr</th>
+        <th colspan="2">Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-ship>
+      <tr>
+        <td>{{ ship.hud }}</td>
+        <td>{{ ship.name }}</td>
+        <td>{{ ship.type }}</td>
+        <td>{{ ship.crew }}</td>
+        <td>{{ ship.passengers }}</td>
+        <td>{{ ship.fighters }}</td>
+        <td>
+          <button class="p-button">Edit</button>
+        </td>
+        <td>
+          <button class="p-button p-button-danger">Remove</button>
+        </td>
+      </tr>
+      <tr *ngIf="page.items.length === 0">
+        <p>The registry is empty</p>
+      </tr>
+    </ng-template>
+<!--    <ng-template pTemplate="paginatorleft">-->
+<!--      <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>-->
+<!--    </ng-template>-->
+<!--    <ng-template pTemplate="paginatorright">-->
+<!--      <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>-->
+<!--    </ng-template>-->
+  </p-table>
+</div>

@@ -19,6 +19,9 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import {TabMenuModule} from "primeng/tabmenu";
 import {JwtInterceptor} from "./core/interceptors/jwt.interceptor";
+import {TableModule} from "primeng/table";
+import {PaginatorModule} from "primeng/paginator";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import {JwtInterceptor} from "./core/interceptors/jwt.interceptor";
     ChipsModule,
     PasswordModule,
     ButtonModule,
-    TabMenuModule
+    TabMenuModule,
+    TableModule,
+    PaginatorModule,
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
