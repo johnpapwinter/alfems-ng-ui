@@ -18,9 +18,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  test() {
-    console.log('test')
-  }
   login() {
     if (this.loginForm.value.username !== null && this.loginForm.value.password !== null) {
       this.authService.loginRequest({
