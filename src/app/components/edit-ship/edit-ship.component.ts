@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ShipEntity} from "../../core/domain/entities/ship.entity";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {ApiService} from "../../core/services/api.service";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 import {ShipDto} from "../../core/domain/dto/ship.dto";
 
 @Component({
