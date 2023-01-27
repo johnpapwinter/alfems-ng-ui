@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ShipEntity} from "../../core/domain/entities/ship.entity";
 import {ApiService} from "../../core/services/api.service";
 import {PageDto} from "../../core/domain/dto/page.dto";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-registry',
@@ -22,7 +23,8 @@ export class RegistryComponent implements OnInit {
     }
   }
 
-  constructor(private apiService: ApiService) {
+  constructor(private router: Router,
+              private apiService: ApiService) {
   }
 
   ngOnInit() {
@@ -41,6 +43,14 @@ export class RegistryComponent implements OnInit {
       this.page = res;
     })
 
+  }
+
+  onEdit(ship: ShipEntity) {
+    this.router.navigate(['edit', ship.id]);
+  }
+
+  onDelete(id: string) {
+    this.apiService.deleteVessel(id);
   }
 
 }

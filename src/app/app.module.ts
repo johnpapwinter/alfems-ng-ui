@@ -23,6 +23,7 @@ import {TableModule} from "primeng/table";
 import {PaginatorModule} from "primeng/paginator";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {RippleModule} from "primeng/ripple";
+import { EditShipComponent } from './components/edit-ship/edit-ship.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {RippleModule} from "primeng/ripple";
     RegistryComponent,
     AddShipComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    EditShipComponent
   ],
   imports: [
     BrowserModule,

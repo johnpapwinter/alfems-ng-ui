@@ -16,7 +16,21 @@ export class ApiService {
     return this.http.get<PageDto>(`${this.rootUrl}/?page=${page}&limit=${limit}`);
   }
 
+  getVesselById(id: string) {
+    return this.http.get<ShipEntity>(`${this.rootUrl}/${id}`);
+  }
+
   addVessel(vessel: ShipDto) {
     return this.http.post(`${this.rootUrl}`, vessel);
+  }
+
+  editVessel(id: string, vessel: ShipDto) {
+    console.log(`Edited ${vessel.name}`)
+    console.log(vessel);
+    this.http.patch(`${this.rootUrl}/${id}`, vessel).subscribe(res => {})
+  }
+
+  deleteVessel(id: string) {
+    console.log(`Deleted vessel with id ${id}`)
   }
 }

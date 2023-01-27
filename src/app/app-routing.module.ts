@@ -7,12 +7,14 @@ import {RegistryComponent} from "./components/registry/registry.component";
 import {LoginComponent} from "./components/login/login.component";
 import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
 import {AuthGuard} from "./core/guards/auth.guard";
+import {EditShipComponent} from "./components/edit-ship/edit-ship.component";
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/home', pathMatch: "full" },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'edit/:id', component: EditShipComponent, canActivate: [AuthGuard] },
   { path: 'registry', component: RegistryComponent, canActivate: [AuthGuard] },
   { path: 'add-ship', component: AddShipComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent, canActivate: [AuthGuard] },
