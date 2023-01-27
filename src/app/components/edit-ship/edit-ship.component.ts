@@ -44,8 +44,6 @@ export class EditShipComponent implements OnInit {
 
   editVessel() {
     this.dto = this.editVesselForm.value;
-    console.log(this.dto);
-    // console.log(this.editVesselForm.value);
     this.apiService.editVessel(this.vessel.id, this.dto);
     this.router.navigateByUrl('registry');
   }

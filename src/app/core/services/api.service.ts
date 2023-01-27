@@ -25,8 +25,6 @@ export class ApiService {
   }
 
   editVessel(id: string, vessel: ShipDto) {
-    console.log(`Edited ${vessel.name}`)
-    console.log(vessel);
     this.http.patch(`${this.rootUrl}/${id}`, vessel).subscribe(res => {})
   }
 
