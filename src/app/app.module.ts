@@ -22,6 +22,7 @@ import {JwtInterceptor} from "./core/interceptors/jwt.interceptor";
 import {TableModule} from "primeng/table";
 import {PaginatorModule} from "primeng/paginator";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {RippleModule} from "primeng/ripple";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     TabMenuModule,
     TableModule,
     PaginatorModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RippleModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

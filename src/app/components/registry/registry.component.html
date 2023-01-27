@@ -20,7 +20,7 @@
         <th>Crew</th>
         <th>Pass</th>
         <th>Ftr</th>
-        <th colspan="2">Actions</th>
+        <th class="text-center" colspan="2">Actions</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-ship>
@@ -31,11 +31,11 @@
         <td>{{ ship.crew }}</td>
         <td>{{ ship.passengers }}</td>
         <td>{{ ship.fighters }}</td>
-        <td>
-          <button class="p-button">Edit</button>
+        <td class="w-1rem">
+          <button pButton pRipple icon="pi pi-search" type="button" class="p-button"></button>
         </td>
-        <td>
-          <button class="p-button p-button-danger">Remove</button>
+        <td class="w-1rem">
+          <button pButton pRipple icon="pi pi-trash" type="button" class="p-button p-button-danger"></button>
         </td>
       </tr>
       <tr *ngIf="page.items.length === 0">
