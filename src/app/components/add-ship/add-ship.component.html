@@ -1,1 +1,55 @@
-<p>add-ship works!</p>
+<div class="p-card">
+    <form class="" [formGroup]="addVesselForm" (ngSubmit)="addVessel()">
+      <div class="grid p-fluid justify-content-center">
+        <div class="col-11">
+          <input type="text" pInputText formControlName="hud" placeholder="HUD">
+          <div class="text-red-500"
+               *ngIf="addVesselFormControl.hud.touched
+               && addVesselFormControl.hud.errors?.['required']">
+            Please enter a HUD
+          </div>
+        </div>
+        <div class="col-11">
+          <input type="text" pInputText formControlName="name" placeholder="Name">
+          <div class="text-red-500"
+               *ngIf="addVesselFormControl.name.touched
+               && addVesselFormControl.name.errors?.['required']">
+            Please enter a Name
+          </div>
+        </div>
+        <div class="col-11">
+          <input type="text" pInputText formControlName="type" placeholder="Type">
+          <div class="text-red-500"
+               *ngIf="addVesselFormControl.type.touched
+               && addVesselFormControl.type.errors?.['required']">
+            Please enter a Type
+          </div>
+        </div>
+      </div>
+      <div class="grid p-fluid justify-content-center">
+        <div class="col-4">
+          <div class="p-inputgroup">
+            <input type="number" pInputText formControlName="crew" placeholder="Crew">
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="p-inputgroup">
+            <input type="number" pInputText formControlName="passengers" placeholder="Passengers">
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="p-inputgroup">
+            <input type="number" pInputText formControlName="fighters" placeholder="Complement">
+          </div>
+        </div>
+      </div>
+      <div class="justify-content-around grid p-4">
+        <button class="p-button col-5 justify-content-center" type="submit" [disabled]="!addVesselForm.valid">
+          <span class="text-center">Add</span>
+        </button>
+        <button (click)="onCancel()" class="p-button p-button-warning col-5 justify-content-center" type="button">
+          <span class="text-center">Cancel</span>
+        </button>
+      </div>
+    </form>
+</div>
