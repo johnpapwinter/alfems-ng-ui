@@ -51,6 +51,7 @@ export class RegistryComponent implements OnInit {
 
   onDelete(id: string) {
     this.apiService.deleteVessel(id);
+    this.router.navigate(['home']);
   }
 
 }

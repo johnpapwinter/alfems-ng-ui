@@ -25,10 +25,10 @@ export class ApiService {
   }
 
   editVessel(id: string, vessel: ShipDto) {
-    this.http.patch(`${this.rootUrl}/${id}`, vessel).subscribe(res => {})
+    this.http.patch(`${this.rootUrl}/${id}`, vessel).subscribe(res => {});
   }
 
   deleteVessel(id: string) {
-    console.log(`Deleted vessel with id ${id}`)
+    this.http.delete(`${this.rootUrl}/${id}`).subscribe(res => {});
   }
 }
