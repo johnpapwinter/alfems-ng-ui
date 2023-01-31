@@ -3,6 +3,7 @@ import {ShipEntity} from "../../core/domain/entities/ship.entity";
 import {ApiService} from "../../core/services/api.service";
 import {PageDto} from "../../core/domain/dto/page.dto";
 import {Router} from "@angular/router";
+import {ConfirmationService} from "primeng/api";
 
 @Component({
   selector: 'app-registry',
@@ -26,7 +27,8 @@ export class RegistryComponent implements OnInit {
   sortOrder: number = 1;
 
   constructor(private router: Router,
-              private apiService: ApiService) {
+              private apiService: ApiService,
+              private confirmationService: ConfirmationService) {
   }
 
   ngOnInit() {
@@ -44,7 +46,8 @@ export class RegistryComponent implements OnInit {
     this.sortBy = event.sortField != undefined ? event.sortField : 'id';
     this.sortOrder = event.sortOrder;
 
-    this.apiService.getRegistry(this.page.meta.currentPage, this.rowsPerPage, this.sortBy, this.sortOrder).subscribe(res => {
+    this.apiService.getRegistry(this.page.meta.currentPage, this.rowsPerPage, this.sortBy, this.sortOrder)
+      .subscribe(res => {
       this.page = res;
     })
 
@@ -55,8 +58,19 @@ export class RegistryComponent implements OnInit {
   }
 
   onDelete(id: string) {
-    this.apiService.deleteVessel(id);
-    this.router.navigate(['home']);
+    this.confirmationService.confirm({
+      header: 'Delete Vessel',
+      message: `Are you sure you want to delete the vessel with id: ${id}?`,
+      icon: 'pi pi-exclamation-circle',
+
+      accept: () => {
+        this.apiService.deleteVessel(id);
+        this.router.navigateByUrl('registry');
+      },
+
+      reject: () => {
+      }
+    });
   }
 
 }

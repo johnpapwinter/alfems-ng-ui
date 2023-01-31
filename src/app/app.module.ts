@@ -24,6 +24,8 @@ import {PaginatorModule} from "primeng/paginator";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {RippleModule} from "primeng/ripple";
 import { EditShipComponent } from './components/edit-ship/edit-ship.component';
+import {ConfirmationService} from "primeng/api";
+import {ConfirmDialogModule} from "primeng/confirmdialog";
 
 @NgModule({
   declarations: [
@@ -51,10 +53,12 @@ import { EditShipComponent } from './components/edit-ship/edit-ship.component';
     TableModule,
     PaginatorModule,
     BrowserAnimationsModule,
-    RippleModule
+    RippleModule,
+    ConfirmDialogModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    ConfirmationService
   ],
   bootstrap: [AppComponent]
 })
