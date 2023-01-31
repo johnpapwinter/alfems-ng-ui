@@ -27,6 +27,7 @@ import { EditShipComponent } from './components/edit-ship/edit-ship.component';
 import {ConfirmationService} from "primeng/api";
 import {ConfirmDialogModule} from "primeng/confirmdialog";
 import {ProgressSpinnerModule} from "primeng/progressspinner";
+import {LoadingSpinnerInterceptor} from "./core/interceptors/loading-spinner.interceptor";
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import {ProgressSpinnerModule} from "primeng/progressspinner";
     ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingSpinnerInterceptor, multi: true },
     ConfirmationService
   ],
   bootstrap: [AppComponent]
