@@ -28,7 +28,7 @@ export class RegistryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.apiService.getRegistry(this.page.meta.currentPage, this.rowsPerPage).subscribe(res => {
+    this.apiService.getRegistry(this.page.meta.currentPage + 1, this.rowsPerPage).subscribe(res => {
       this.page = res;
     })
   }

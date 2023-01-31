@@ -13,7 +13,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getRegistry(page: number, limit: number) {
-    return this.http.get<PageDto>(`${this.rootUrl}/?page=${page}&limit=${limit}`);
+    return this.http.get<PageDto>(`${this.rootUrl}/?page=${page}&limit=${limit}&sortBy=helloDude`);
   }
 
   getVesselById(id: string) {
