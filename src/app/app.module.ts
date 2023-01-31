@@ -26,6 +26,7 @@ import {RippleModule} from "primeng/ripple";
 import { EditShipComponent } from './components/edit-ship/edit-ship.component';
 import {ConfirmationService} from "primeng/api";
 import {ConfirmDialogModule} from "primeng/confirmdialog";
+import {ProgressSpinnerModule} from "primeng/progressspinner";
 
 @NgModule({
   declarations: [
@@ -38,24 +39,25 @@ import {ConfirmDialogModule} from "primeng/confirmdialog";
     PageNotFoundComponent,
     EditShipComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    MenuModule,
-    MenubarModule,
-    CardModule,
-    ReactiveFormsModule,
-    ChipsModule,
-    PasswordModule,
-    ButtonModule,
-    TabMenuModule,
-    TableModule,
-    PaginatorModule,
-    BrowserAnimationsModule,
-    RippleModule,
-    ConfirmDialogModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        MenuModule,
+        MenubarModule,
+        CardModule,
+        ReactiveFormsModule,
+        ChipsModule,
+        PasswordModule,
+        ButtonModule,
+        TabMenuModule,
+        TableModule,
+        PaginatorModule,
+        BrowserAnimationsModule,
+        RippleModule,
+        ConfirmDialogModule,
+        ProgressSpinnerModule
+    ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     ConfirmationService

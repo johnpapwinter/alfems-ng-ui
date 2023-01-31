@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {AuthService} from "./core/services/auth.service";
+import {LoadingSpinnerService} from "./core/services/loading-spinner.service";
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ import {AuthService} from "./core/services/auth.service";
 export class AppComponent {
   title = 'alfems-ng-ui';
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService,
+              public loadingSpinner: LoadingSpinnerService) {
   }
 }
