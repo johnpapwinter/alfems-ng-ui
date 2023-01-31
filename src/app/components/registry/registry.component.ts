@@ -22,13 +22,16 @@ export class RegistryComponent implements OnInit {
       currentPage: 0,
     }
   }
+  sortBy: string = 'id';
+  sortOrder: number = 1;
 
   constructor(private router: Router,
               private apiService: ApiService) {
   }
 
   ngOnInit() {
-    this.apiService.getRegistry(this.page.meta.currentPage + 1, this.rowsPerPage).subscribe(res => {
+    this.apiService.getRegistry(this.page.meta.currentPage + 1, this.rowsPerPage, this.sortBy, this.sortOrder)
+      .subscribe(res => {
       this.page = res;
     })
   }
@@ -38,8 +41,10 @@ export class RegistryComponent implements OnInit {
     this.rowsPerPage = event.rows;
 
     this.page.meta.currentPage = Math.floor(this.first / this.rowsPerPage) + 1;
+    this.sortBy = event.sortField != undefined ? event.sortField : 'id';
+    this.sortOrder = event.sortOrder;
 
-    this.apiService.getRegistry(this.page.meta.currentPage, this.rowsPerPage).subscribe(res => {
+    this.apiService.getRegistry(this.page.meta.currentPage, this.rowsPerPage, this.sortBy, this.sortOrder).subscribe(res => {
       this.page = res;
     })
 

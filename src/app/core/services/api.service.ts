@@ -12,8 +12,8 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getRegistry(page: number, limit: number) {
-    return this.http.get<PageDto>(`${this.rootUrl}/?page=${page}&limit=${limit}&sortBy=helloDude`);
+  getRegistry(page: number, limit: number, sortBy?: string, sortOrder?: number) {
+    return this.http.get<PageDto>(`${this.rootUrl}/?page=${page}&limit=${limit}&sortBy=${sortBy}&asc=${sortOrder}`);
   }
 
   getVesselById(id: string) {
