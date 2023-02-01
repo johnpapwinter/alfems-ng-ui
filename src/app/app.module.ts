@@ -31,6 +31,9 @@ import {LoadingSpinnerInterceptor} from "./core/interceptors/loading-spinner.int
 import {ToastModule} from "primeng/toast";
 import {TieredMenuModule} from "primeng/tieredmenu";
 import {AvatarModule} from "primeng/avatar";
+import { AddTaskGroupComponent } from './components/task-groups/add-task-group/add-task-group.component';
+import { EditTaskGroupComponent } from './components/task-groups/edit-task-group/edit-task-group.component';
+import { TaskGroupListComponent } from './components/task-groups/task-group-list/task-group-list.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import {AvatarModule} from "primeng/avatar";
     AddShipComponent,
     LoginComponent,
     PageNotFoundComponent,
-    EditShipComponent
+    EditShipComponent,
+    AddTaskGroupComponent,
+    EditTaskGroupComponent,
+    TaskGroupListComponent
   ],
   imports: [
     BrowserModule,

@@ -44,12 +44,12 @@ export class DashboardComponent implements OnInit {
           {
             label: 'Task Group List',
             icon: 'pi pi-fw pi-list',
-            routerLink: ['/tg-registry'],
+            routerLink: ['/task-group-list'],
           },
           {
             label: 'Add Task Group',
             icon: 'pi pi-fw pi-pencil',
-            routerLink: ['/add-tg'],
+            routerLink: ['/add-task-group'],
           }
         ],
       },
