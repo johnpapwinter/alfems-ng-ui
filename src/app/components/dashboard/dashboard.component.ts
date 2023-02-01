@@ -53,12 +53,6 @@ export class DashboardComponent implements OnInit {
           }
         ],
       },
-      // {
-      //   label: 'Logout',
-      //   icon: 'pi pi-fw pi-power-off',
-      //   routerLink: ['login'],
-      //   command: () => localStorage.clear(),
-      // }
     ]
 
     this.user = [
@@ -66,7 +60,7 @@ export class DashboardComponent implements OnInit {
         label: 'Logout',
         icon: 'pi pi-fw pi-power-off',
         routerLink: ['login'],
-        command: () => localStorage.clear(),
+        command: () => this.authService.removeToken(),
       }
     ]
   }

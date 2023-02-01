@@ -45,7 +45,7 @@ export class AuthService {
   }
 
   removeToken(): void {
-    localStorage.removeItem('alfems');
+    localStorage.clear();
   }
 
   getUsername(): string {
