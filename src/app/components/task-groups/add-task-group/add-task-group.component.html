@@ -1,1 +1,22 @@
-<p>add-task-group works!</p>
+<div class="p-card">
+  <form class="" [formGroup]="addTaskForceForm" (ngSubmit)="addTaskForce()">
+    <div class="grid p-fluid justify-content-center">
+      <div class="col-11">
+        <input type="text" pInputText formControlName="name" placeholder="Name">
+        <div class="text-red-500"
+             *ngIf="addTaskForceFormControl.name.touched
+             && addTaskForceFormControl.name.errors?.['required']">
+          Please enter a name
+        </div>
+      </div>
+    </div>
+    <div class="justify-content-around grid p-4">
+      <button class="p-button col-5 justify-content-center" type="submit" [disabled]="!addTaskForceForm.valid">
+        <span class="text-center">Add</span>
+      </button>
+      <button (click)="onCancel()" class="p-button p-button-warning col-5 justify-content-center" type="button">
+        <span class="text-center">Cancel</span>
+      </button>
+    </div>
+  </form>
+</div>
