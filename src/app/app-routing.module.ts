@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
-import {HomeComponent} from "./components/home/home.component";
-import {AddShipComponent} from "./components/add-ship/add-ship.component";
-import {RegistryComponent} from "./components/registry/registry.component";
-import {LoginComponent} from "./components/login/login.component";
-import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
+import {HomeComponent} from "./components/shared/home/home.component";
+import {AddShipComponent} from "./components/vessels/add-ship/add-ship.component";
+import {RegistryComponent} from "./components/vessels/registry/registry.component";
+import {LoginComponent} from "./components/shared/login/login.component";
+import {PageNotFoundComponent} from "./components/shared/page-not-found/page-not-found.component";
 import {AuthGuard} from "./core/guards/auth.guard";
-import {EditShipComponent} from "./components/edit-ship/edit-ship.component";
+import {EditShipComponent} from "./components/vessels/edit-ship/edit-ship.component";
 
 
 const routes: Routes = [

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ShipEntity} from "../../core/domain/entities/ship.entity";
-import {ApiService} from "../../core/services/api.service";
-import {PageDto} from "../../core/domain/dto/page.dto";
+import {ShipEntity} from "../../../core/domain/entities/ship.entity";
+import {ApiService} from "../../../core/services/api.service";
+import {PageDto} from "../../../core/domain/dto/page.dto";
 import {Router} from "@angular/router";
 import {ConfirmationService, MessageService} from "primeng/api";
 

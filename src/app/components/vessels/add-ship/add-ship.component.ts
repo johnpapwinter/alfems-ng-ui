@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {ApiService} from "../../core/services/api.service";
+import {ApiService} from "../../../core/services/api.service";
 import {Router} from "@angular/router";
-import {ShipDto} from "../../core/domain/dto/ship.dto";
+import {ShipDto} from "../../../core/domain/dto/ship.dto";
 import {MessageService} from "primeng/api";
 
 @Component({
