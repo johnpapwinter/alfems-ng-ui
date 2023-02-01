@@ -1,7 +1,7 @@
 <p-menubar *ngIf="authService.isLoggedIn()" [model]="items">
   <ng-template pTemplate="start"></ng-template>
   <ng-template pTemplate="end">
-    <div (click)="logout.toggle($event)" style="cursor: pointer !important;">
+    <div class="cursor-pointer" (click)="logout.toggle($event)">
       <p-avatar icon="pi pi-user"></p-avatar>
       {{ authService.getUsername() }}
     </div>
