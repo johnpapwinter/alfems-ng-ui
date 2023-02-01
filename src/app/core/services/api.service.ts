@@ -3,32 +3,55 @@ import {HttpClient} from "@angular/common/http";
 import {ShipEntity} from "../domain/entities/ship.entity";
 import {PageDto} from "../domain/dto/page.dto";
 import {ShipDto} from "../domain/dto/ship.dto";
+import {TaskForceDto} from "../domain/dto/task-force.dto";
+import {TaskForceEntity} from "../domain/entities/task-force.entity";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  rootUrl: string = 'http://localhost:3000/ship';
+  shipRootUrl: string = 'http://localhost:3000/ship';
+  taskGroupRootUrl: string = 'http://localhost:3000/task-force';
 
   constructor(private http: HttpClient) { }
 
   getRegistry(page: number, limit: number, sortBy?: string, sortOrder?: number) {
-    return this.http.get<PageDto>(`${this.rootUrl}/?page=${page}&limit=${limit}&sortBy=${sortBy}&asc=${sortOrder}`);
+    return this.http.get<PageDto>(`${this.shipRootUrl}/?page=${page}&limit=${limit}&sortBy=${sortBy}&asc=${sortOrder}`);
   }
 
   getVesselById(id: string) {
-    return this.http.get<ShipEntity>(`${this.rootUrl}/${id}`);
+    return this.http.get<ShipEntity>(`${this.shipRootUrl}/${id}`);
   }
 
   addVessel(vessel: ShipDto) {
-    return this.http.post(`${this.rootUrl}`, vessel);
+    return this.http.post(`${this.shipRootUrl}`, vessel);
   }
 
   editVessel(id: string, vessel: ShipDto) {
-    this.http.patch(`${this.rootUrl}/${id}`, vessel).subscribe(res => {});
+    this.http.patch(`${this.shipRootUrl}/${id}`, vessel).subscribe(res => {});
   }
 
   deleteVessel(id: string) {
-    this.http.delete(`${this.rootUrl}/${id}`).subscribe(res => {});
+    this.http.delete(`${this.shipRootUrl}/${id}`).subscribe(res => {});
+  }
+
+  getTaskGroupList(page: number, limit: number) {
+    return this.http.get<PageDto>(`${this.taskGroupRootUrl}/?page=${page}&limit=${limit}`);
+  }
+
+  getTaskGroupById(id: string) {
+    return this.http.get<TaskForceEntity>(`${this.taskGroupRootUrl}/${id}`);
+  }
+
+  addTaskGroup(taskGroup: TaskForceDto) {
+    return this.http.post(`${this.taskGroupRootUrl}`, taskGroup);
+  }
+
+  editTaskGroup(id: string, taskGroup: TaskForceDto) {
+    this.http.patch(`${this.taskGroupRootUrl}/${id}`, taskGroup).subscribe(res => {});
+  }
+
+  deleteTaskGroup(id: string) {
+    this.http.delete(`${this.taskGroupRootUrl}/${id}`).subscribe(res => {});
   }
 }

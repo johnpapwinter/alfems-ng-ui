@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'add-ship', component: AddShipComponent, canActivate: [AuthGuard] },
   { path: 'task-group-list', component: TaskGroupListComponent, canActivate: [AuthGuard] },
   { path: 'add-task-group', component: AddTaskGroupComponent, canActivate: [AuthGuard] },
-  { path: 'edit-task-group', component: EditTaskGroupComponent, canActivate: [AuthGuard] },
+  { path: 'edit-task-group/:id', component: EditTaskGroupComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent, canActivate: [AuthGuard] },
 ]
 
