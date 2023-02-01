@@ -3,7 +3,7 @@ import {ShipEntity} from "../../core/domain/entities/ship.entity";
 import {ApiService} from "../../core/services/api.service";
 import {PageDto} from "../../core/domain/dto/page.dto";
 import {Router} from "@angular/router";
-import {ConfirmationService} from "primeng/api";
+import {ConfirmationService, MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-registry',
@@ -28,7 +28,8 @@ export class RegistryComponent implements OnInit {
 
   constructor(private router: Router,
               private apiService: ApiService,
-              private confirmationService: ConfirmationService) {
+              private confirmationService: ConfirmationService,
+              private messageService: MessageService) {
   }
 
   ngOnInit() {
@@ -65,6 +66,7 @@ export class RegistryComponent implements OnInit {
 
       accept: () => {
         this.apiService.deleteVessel(id);
+        this.messageService.add({ severity: 'success', summary: `Vessel with id ${id} has been deleted` });
         this.router.navigateByUrl('registry');
       },
 

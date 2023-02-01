@@ -1,3 +1,4 @@
-<p-progressSpinner class="loader" *ngIf="loadingSpinner.visibility | async"></p-progressSpinner>
+<p-toast></p-toast>
+<p-progressSpinner class="z-5 fixed left-50 top-50" *ngIf="loadingSpinner.visibility | async"></p-progressSpinner>
 <app-dashboard></app-dashboard>
 <router-outlet></router-outlet>

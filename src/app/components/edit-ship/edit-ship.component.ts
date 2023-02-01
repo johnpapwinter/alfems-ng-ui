@@ -4,6 +4,7 @@ import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {ApiService} from "../../core/services/api.service";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ShipDto} from "../../core/domain/dto/ship.dto";
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-edit-ship',
@@ -26,7 +27,8 @@ export class EditShipComponent implements OnInit {
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
-              private apiService: ApiService) {
+              private apiService: ApiService,
+              private messageService: MessageService) {
   }
 
   ngOnInit() {
@@ -45,6 +47,7 @@ export class EditShipComponent implements OnInit {
   editVessel() {
     this.dto = this.editVesselForm.value;
     this.apiService.editVessel(this.vessel.id, this.dto);
+    this.messageService.add({ severity: 'success', summary: "The vessel's information was successfully changed" })
     this.router.navigateByUrl('registry');
   }
 

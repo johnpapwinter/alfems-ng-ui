@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ApiService} from "../../core/services/api.service";
 import {Router} from "@angular/router";
 import {ShipDto} from "../../core/domain/dto/ship.dto";
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-add-ship',
@@ -23,13 +24,15 @@ export class AddShipComponent {
   vessel: ShipDto = {hud: "", name: "", type: ""}
 
   constructor(private router: Router,
-              private apiService: ApiService) {
+              private apiService: ApiService,
+              private messageService: MessageService) {
 
   }
 
   addVessel() {
     this.vessel = this.addVesselForm.value;
     this.apiService.addVessel(this.vessel).subscribe(res => {});
+    this.messageService.add({ severity: 'success', summary: 'The vessel was successfully added to the registry' })
     this.router.navigateByUrl('home');
   }
 

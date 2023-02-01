@@ -24,10 +24,11 @@ import {PaginatorModule} from "primeng/paginator";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {RippleModule} from "primeng/ripple";
 import { EditShipComponent } from './components/edit-ship/edit-ship.component';
-import {ConfirmationService} from "primeng/api";
+import {ConfirmationService, MessageService} from "primeng/api";
 import {ConfirmDialogModule} from "primeng/confirmdialog";
 import {ProgressSpinnerModule} from "primeng/progressspinner";
 import {LoadingSpinnerInterceptor} from "./core/interceptors/loading-spinner.interceptor";
+import {ToastModule} from "primeng/toast";
 
 @NgModule({
   declarations: [
@@ -40,29 +41,31 @@ import {LoadingSpinnerInterceptor} from "./core/interceptors/loading-spinner.int
     PageNotFoundComponent,
     EditShipComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        MenuModule,
-        MenubarModule,
-        CardModule,
-        ReactiveFormsModule,
-        ChipsModule,
-        PasswordModule,
-        ButtonModule,
-        TabMenuModule,
-        TableModule,
-        PaginatorModule,
-        BrowserAnimationsModule,
-        RippleModule,
-        ConfirmDialogModule,
-        ProgressSpinnerModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MenuModule,
+    MenubarModule,
+    CardModule,
+    ReactiveFormsModule,
+    ChipsModule,
+    PasswordModule,
+    ButtonModule,
+    TabMenuModule,
+    TableModule,
+    PaginatorModule,
+    BrowserAnimationsModule,
+    RippleModule,
+    ConfirmDialogModule,
+    ProgressSpinnerModule,
+    ToastModule
+  ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoadingSpinnerInterceptor, multi: true },
-    ConfirmationService
+    ConfirmationService,
+    MessageService,
   ],
   bootstrap: [AppComponent]
 })

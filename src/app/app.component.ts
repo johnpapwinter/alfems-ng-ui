@@ -10,7 +10,6 @@ import {LoadingSpinnerService} from "./core/services/loading-spinner.service";
 export class AppComponent {
   title = 'alfems-ng-ui';
 
-  constructor(public authService: AuthService,
-              public loadingSpinner: LoadingSpinnerService) {
+  constructor(public loadingSpinner: LoadingSpinnerService) {
   }
 }
