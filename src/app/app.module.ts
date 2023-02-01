@@ -29,6 +29,8 @@ import {ConfirmDialogModule} from "primeng/confirmdialog";
 import {ProgressSpinnerModule} from "primeng/progressspinner";
 import {LoadingSpinnerInterceptor} from "./core/interceptors/loading-spinner.interceptor";
 import {ToastModule} from "primeng/toast";
+import {TieredMenuModule} from "primeng/tieredmenu";
+import {AvatarModule} from "primeng/avatar";
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import {ToastModule} from "primeng/toast";
     RippleModule,
     ConfirmDialogModule,
     ProgressSpinnerModule,
-    ToastModule
+    ToastModule,
+    TieredMenuModule,
+    AvatarModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

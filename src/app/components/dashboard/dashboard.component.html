@@ -1,1 +1,11 @@
-<p-tabMenu *ngIf="authService.isLoggedIn()" class="p-menubar" [model]="items"></p-tabMenu>
+<p-menubar *ngIf="authService.isLoggedIn()" [model]="items">
+  <ng-template pTemplate="start"></ng-template>
+  <ng-template pTemplate="end">
+    <div (click)="logout.toggle($event)" style="cursor: pointer !important;">
+      <p-avatar icon="pi pi-user"></p-avatar>
+      {{ authService.getUsername() }}
+    </div>
+  </ng-template>
+</p-menubar>
+
+<p-tieredMenu #logout [model]="user" [popup]="true"></p-tieredMenu>

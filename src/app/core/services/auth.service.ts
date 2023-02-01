@@ -3,11 +3,14 @@ import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {JwtResponseDto} from "../domain/dto/jwt.response.dto";
 import {LoginRequestDto} from "../domain/dto/login.request.dto";
+import {JwtUserDto} from "../domain/dto/jwt.user.dto";
+import jwtDecode from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  loggedInUser: JwtUserDto = { username: '', roles: [] };
   rootUrl: string = 'http://localhost:3000/auth';
 
   constructor(private router: Router,
@@ -43,6 +46,13 @@ export class AuthService {
 
   removeToken(): void {
     localStorage.removeItem('alfems');
+  }
+
+  getUsername(): string {
+    const token = this.getToken();
+    this.loggedInUser = jwtDecode(token);
+
+    return this.loggedInUser.username;
   }
 
 }

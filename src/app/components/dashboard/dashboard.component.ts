@@ -9,6 +9,7 @@ import {MenuItem} from "primeng/api";
 })
 export class DashboardComponent implements OnInit {
   items: MenuItem[] = [];
+  user: MenuItem[] = [];
 
   constructor(public authService: AuthService) {
   }
@@ -17,18 +18,53 @@ export class DashboardComponent implements OnInit {
     this.items = [
       {
         label: 'Home',
+        icon: 'pi pi-fw pi-home',
         routerLink: ['/home'],
       },
       {
-        label: 'Registry',
-        routerLink: ['/registry'],
+        label: 'Vessels',
+        icon: 'pi pi-fw pi-folder',
+        items: [
+          {
+            label: 'Vessel Registry',
+            icon: 'pi pi-fw pi-list',
+            routerLink: ['/registry'],
+          },
+          {
+            label: 'Add',
+            icon: 'pi pi-fw pi-pencil',
+            routerLink: ['/add-ship'],
+          }
+        ],
       },
       {
-        label: 'Add',
-        routerLink: ['/add-ship'],
+        label: 'Task Groups',
+        icon: 'pi pi-fw pi-folder',
+        items: [
+          {
+            label: 'Task Group List',
+            icon: 'pi pi-fw pi-list',
+            routerLink: ['/tg-registry'],
+          },
+          {
+            label: 'Add Task Group',
+            icon: 'pi pi-fw pi-pencil',
+            routerLink: ['/add-tg'],
+          }
+        ],
       },
+      // {
+      //   label: 'Logout',
+      //   icon: 'pi pi-fw pi-power-off',
+      //   routerLink: ['login'],
+      //   command: () => localStorage.clear(),
+      // }
+    ]
+
+    this.user = [
       {
         label: 'Logout',
+        icon: 'pi pi-fw pi-power-off',
         routerLink: ['login'],
         command: () => localStorage.clear(),
       }
