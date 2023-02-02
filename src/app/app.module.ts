@@ -34,6 +34,7 @@ import {AvatarModule} from "primeng/avatar";
 import { AddTaskGroupComponent } from './components/task-groups/add-task-group/add-task-group.component';
 import { EditTaskGroupComponent } from './components/task-groups/edit-task-group/edit-task-group.component';
 import { TaskGroupListComponent } from './components/task-groups/task-group-list/task-group-list.component';
+import {ApiErrorInterceptor} from "./core/interceptors/api-error.interceptor";
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { TaskGroupListComponent } from './components/task-groups/task-group-list
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoadingSpinnerInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ApiErrorInterceptor, multi: true },
     ConfirmationService,
     MessageService,
   ],
