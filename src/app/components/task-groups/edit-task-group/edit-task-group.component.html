@@ -1,1 +1,17 @@
-<p>edit-task-group works!</p>
+<div class="p-card">
+  <form class="" [formGroup]="editTaskForceForm" (ngSubmit)="editTaskForce()">
+    <div class="grid p-fluid justify-content-center">
+      <div class="col-11">
+        <input type="text" pInputText formControlName="name" placeholder="{{ taskForce.name }}">
+      </div>
+    </div>
+    <div class="justify-content-around grid p-4">
+      <button class="p-button col-5 justify-content-center" type="submit">
+        <span class="text-center">Edit</span>
+      </button>
+      <button (click)="onCancel()" class="p-button p-button-warning col-5 justify-content-center" type="button">
+        <span class="text-center">Cancel</span>
+      </button>
+    </div>
+  </form>
+</div>
