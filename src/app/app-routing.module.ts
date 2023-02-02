@@ -11,6 +11,8 @@ import {EditShipComponent} from "./components/vessels/edit-ship/edit-ship.compon
 import {TaskGroupListComponent} from "./components/task-groups/task-group-list/task-group-list.component";
 import {AddTaskGroupComponent} from "./components/task-groups/add-task-group/add-task-group.component";
 import {EditTaskGroupComponent} from "./components/task-groups/edit-task-group/edit-task-group.component";
+import {ManageTaskGroupComponent} from "./components/task-groups/manage-task-group/manage-task-group.component";
+import {ManageVesselComponent} from "./components/vessels/manage-vessel/manage-vessel.component";
 
 
 const routes: Routes = [
@@ -20,9 +22,11 @@ const routes: Routes = [
   { path: 'edit/:id', component: EditShipComponent, canActivate: [AuthGuard] },
   { path: 'registry', component: RegistryComponent, canActivate: [AuthGuard] },
   { path: 'add-ship', component: AddShipComponent, canActivate: [AuthGuard] },
+  { path: 'manage-vessel', component: ManageVesselComponent, canActivate: [AuthGuard] },
   { path: 'task-group-list', component: TaskGroupListComponent, canActivate: [AuthGuard] },
   { path: 'add-task-group', component: AddTaskGroupComponent, canActivate: [AuthGuard] },
   { path: 'edit-task-group/:id', component: EditTaskGroupComponent, canActivate: [AuthGuard] },
+  { path: 'manage-task-group', component: ManageTaskGroupComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent, canActivate: [AuthGuard] },
 ]
 

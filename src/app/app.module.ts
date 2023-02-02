@@ -35,6 +35,8 @@ import { AddTaskGroupComponent } from './components/task-groups/add-task-group/a
 import { EditTaskGroupComponent } from './components/task-groups/edit-task-group/edit-task-group.component';
 import { TaskGroupListComponent } from './components/task-groups/task-group-list/task-group-list.component';
 import {ApiErrorInterceptor} from "./core/interceptors/api-error.interceptor";
+import { ManageTaskGroupComponent } from './components/task-groups/manage-task-group/manage-task-group.component';
+import { ManageVesselComponent } from './components/vessels/manage-vessel/manage-vessel.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import {ApiErrorInterceptor} from "./core/interceptors/api-error.interceptor";
     EditShipComponent,
     AddTaskGroupComponent,
     EditTaskGroupComponent,
-    TaskGroupListComponent
+    TaskGroupListComponent,
+    ManageTaskGroupComponent,
+    ManageVesselComponent
   ],
   imports: [
     BrowserModule,
