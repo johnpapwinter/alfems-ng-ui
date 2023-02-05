@@ -37,6 +37,7 @@ import { TaskGroupListComponent } from './components/task-groups/task-group-list
 import {ApiErrorInterceptor} from "./core/interceptors/api-error.interceptor";
 import { ManageTaskGroupComponent } from './components/task-groups/manage-task-group/manage-task-group.component';
 import { ManageVesselComponent } from './components/vessels/manage-vessel/manage-vessel.component';
+import {AutoCompleteModule} from "primeng/autocomplete";
 
 @NgModule({
   declarations: [
@@ -54,28 +55,29 @@ import { ManageVesselComponent } from './components/vessels/manage-vessel/manage
     ManageTaskGroupComponent,
     ManageVesselComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    MenuModule,
-    MenubarModule,
-    CardModule,
-    ReactiveFormsModule,
-    ChipsModule,
-    PasswordModule,
-    ButtonModule,
-    TabMenuModule,
-    TableModule,
-    PaginatorModule,
-    BrowserAnimationsModule,
-    RippleModule,
-    ConfirmDialogModule,
-    ProgressSpinnerModule,
-    ToastModule,
-    TieredMenuModule,
-    AvatarModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        MenuModule,
+        MenubarModule,
+        CardModule,
+        ReactiveFormsModule,
+        ChipsModule,
+        PasswordModule,
+        ButtonModule,
+        TabMenuModule,
+        TableModule,
+        PaginatorModule,
+        BrowserAnimationsModule,
+        RippleModule,
+        ConfirmDialogModule,
+        ProgressSpinnerModule,
+        ToastModule,
+        TieredMenuModule,
+        AvatarModule,
+        AutoCompleteModule
+    ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoadingSpinnerInterceptor, multi: true },

@@ -1,7 +1,8 @@
 import {ShipEntity} from "../entities/ship.entity";
+import {TaskForceEntity} from "../entities/task-force.entity";
 
 export interface PageDto {
-  items: ShipEntity[],
+  items: any[],
   meta: {
     totalItems: number,
     itemCount: number,

@@ -1,1 +1,58 @@
-<p>manage-task-group works!</p>
+<div class="p-2">
+  <div class="mb-3">
+    <p-autoComplete [(ngModel)]="taskForceName"
+                    [suggestions]="checks"
+                    (completeMethod)="search($event)"
+                    (onSelect)="onChoice()"
+                    [dropdown]="true" placeholder="Select Task Force">
+    </p-autoComplete>
+  </div>
+  <div class="p-card mb-4 p-2">
+    <p>Name: {{ taskForce.name }}</p>
+    <p>Total Vessels: {{ taskForce.ships.length }}</p>
+    <div>
+      <p>Total Crew: {{ totalCrew }}</p>
+      <p>Total Passengers: {{ totalPass }}</p>
+      <p>Total Fighters: {{ totalFtr }}</p>
+    </div>
+    <button pButton pRipple class="p-button-sm p-button" (click)="onAdd()">Add Vessel</button>
+  </div>
+  <div class="p-card">
+    <p-table [value]="taskForce.ships"
+             [scrollable]="true"
+             scrollHeight="500px"
+             styleClass="p-datatable-striped"
+             [tableStyle]="{'min-width': '50rem'}"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>HUD</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Crew</th>
+          <th>Pass</th>
+          <th>Ftr</th>
+          <th>Remove</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-ship>
+        <tr>
+          <td>{{ ship.hud }}</td>
+          <td>{{ ship.name }}</td>
+          <td>{{ ship.type }}</td>
+          <td>{{ ship.crew }}</td>
+          <td>{{ ship.passengers }}</td>
+          <td>{{ ship.fighters }}</td>
+          <td><button type="button"
+                      pButton pRipple icon="pi pi-minus"
+                      class="p-button-warning p-button-rounded p-button-sm">
+          </button>
+          </td>
+        </tr>
+        <tr *ngIf="taskForce.ships.length === 0">
+          <p>There are no vessels presently assigned</p>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

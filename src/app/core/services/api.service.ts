@@ -37,6 +37,7 @@ export class ApiService {
 
   getTaskGroupList(page: number, limit: number) {
     return this.http.get<PageDto>(`${this.taskGroupRootUrl}/?page=${page}&limit=${limit}`);
+    // return this.http.get<PageDto>(`${this.taskGroupRootUrl}/test/?page=${page}&limit=${limit}`);
   }
 
   getTaskGroupById(id: string) {
@@ -53,5 +54,17 @@ export class ApiService {
 
   deleteTaskGroup(id: string) {
     this.http.delete(`${this.taskGroupRootUrl}/${id}`).subscribe(res => {});
+  }
+
+  findAllTaskForces() {
+    return this.http.get<TaskForceEntity[]>(`${this.taskGroupRootUrl}/all`);
+  }
+
+  findTaskForceByName(name: string) {
+    return this.http.get<TaskForceEntity>(`${this.taskGroupRootUrl}/name/${name}`)
+  }
+
+  getTest(page: number, limit: number) {
+    return this.http.get<PageDto>(`${this.taskGroupRootUrl}/test/?page=${page}&limit=${limit}`);
   }
 }
