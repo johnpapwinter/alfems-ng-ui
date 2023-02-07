@@ -39,6 +39,10 @@ export class ApiService {
     this.http.delete(`${this.shipRootUrl}/${id}`).subscribe(res => {});
   }
 
+  getAllUnassigned(page: number, limit: number, sortBy?: string, sortOrder?: number) {
+    return this.http.get<PageDto>(`${this.shipRootUrl}/unassigned/?page=${page}&limit=${limit}&sortBy=${sortBy}&asc=${sortOrder}`);
+  }
+
   getTaskGroupList(page: number, limit: number) {
     return this.http.get<PageDto>(`${this.taskGroupRootUrl}/?page=${page}&limit=${limit}`);
     // return this.http.get<PageDto>(`${this.taskGroupRootUrl}/test/?page=${page}&limit=${limit}`);
@@ -70,5 +74,13 @@ export class ApiService {
 
   getTest(page: number, limit: number) {
     return this.http.get<PageDto>(`${this.taskGroupRootUrl}/test/?page=${page}&limit=${limit}`);
+  }
+
+  assignVesselToTaskForce(taskForceId: string, vesselId: string) {
+    return this.http.put(`${this.taskGroupRootUrl}/assign/${taskForceId}/${vesselId}`, null);
+  }
+
+  removeVesselFromTaskForce(taskForceId: string, vesselId: string) {
+    return this.http.put(`${this.taskGroupRootUrl}/remove/${taskForceId}/${vesselId}`, null);
   }
 }

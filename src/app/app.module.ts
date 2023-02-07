@@ -38,6 +38,7 @@ import {ApiErrorInterceptor} from "./core/interceptors/api-error.interceptor";
 import { ManageTaskGroupComponent } from './components/task-groups/manage-task-group/manage-task-group.component';
 import { ManageVesselComponent } from './components/vessels/manage-vessel/manage-vessel.component';
 import {AutoCompleteModule} from "primeng/autocomplete";
+import {OverlayPanelModule} from "primeng/overlaypanel";
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import {AutoCompleteModule} from "primeng/autocomplete";
         ToastModule,
         TieredMenuModule,
         AvatarModule,
-        AutoCompleteModule
+        AutoCompleteModule,
+        OverlayPanelModule
     ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
