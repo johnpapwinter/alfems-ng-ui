@@ -62,7 +62,7 @@ export class TaskGroupListComponent implements OnInit{
       accept: () => {
         this.apiService.deleteTaskGroup(id);
         this.messageService.add({ severity: 'success', summary: 'The task group was deleted' });
-        this.router.navigateByUrl('task-group-list')
+        window.location.reload();
       },
 
       reject: () => {

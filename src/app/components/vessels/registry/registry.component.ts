@@ -67,7 +67,7 @@ export class RegistryComponent implements OnInit {
       accept: () => {
         this.apiService.deleteVessel(id);
         this.messageService.add({ severity: 'success', summary: `Vessel with id ${id} has been deleted` });
-        this.router.navigateByUrl('registry');
+        window.location.reload();
       },
 
       reject: () => {
