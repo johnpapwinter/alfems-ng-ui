@@ -75,7 +75,7 @@ export class ManageTaskGroupComponent implements OnInit {
   }
 
 
-  onAdd(event: any) {
+  onAssign(event: any) {
     this.confirmationService.confirm({
       header: 'Assign Vessel',
       message: `Do you want to assign ${event.data.name} to ${this.taskForce.name}?`,
@@ -92,7 +92,7 @@ export class ManageTaskGroupComponent implements OnInit {
     })
   }
 
-  onRemove(tfId: string, shipId: string) {
+  onUnassign(tfId: string, shipId: string) {
     this.confirmationService.confirm({
       header: 'Unassign Vessel',
       message: 'Are you sure you want to unassign this vessel?',

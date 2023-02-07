@@ -4,7 +4,7 @@
       <p-table [value]="page.items"
                selectionMode="single"
                [(selection)]="selectedShip"
-               (onRowSelect)="onAdd($event)"
+               (onRowSelect)="onAssign($event)"
                styleClass="p-datatable-striped"
                [lazy]="true"
                [paginator]="true"
@@ -85,7 +85,7 @@
           <td><button type="button"
                       pButton pRipple icon="pi pi-minus"
                       class="p-button-warning p-button-rounded p-button-sm"
-                      (click)="onRemove(taskForce.id, ship.id)">
+                      (click)="onUnassign(taskForce.id, ship.id)">
           </button>
           </td>
         </tr>
