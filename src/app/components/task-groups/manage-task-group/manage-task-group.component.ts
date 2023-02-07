@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TaskForceEntity} from "../../../core/domain/entities/task-force.entity";
 import {ApiService} from "../../../core/services/api.service";
 
@@ -7,7 +7,7 @@ import {ApiService} from "../../../core/services/api.service";
   templateUrl: './manage-task-group.component.html',
   styleUrls: ['./manage-task-group.component.css']
 })
-export class ManageTaskGroupComponent {
+export class ManageTaskGroupComponent implements OnInit {
   taskForceName: string = ''
   results: TaskForceEntity[] = []
   checks: string[] = []
@@ -17,6 +17,12 @@ export class ManageTaskGroupComponent {
   totalFtr = 0;
 
   constructor(private apiService: ApiService) {
+  }
+
+  ngOnInit() {
+    this.apiService.findAllTaskForces().subscribe(res => {
+      this.results = res;
+    })
   }
 
   search(event: any) {

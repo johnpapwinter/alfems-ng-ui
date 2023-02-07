@@ -1,3 +1,5 @@
+import {TaskForceEntity} from "./task-force.entity";
+
 export interface ShipEntity {
   id: string;
   hud: string;
@@ -6,4 +8,5 @@ export interface ShipEntity {
   crew: number;
   passengers: number;
   fighters: number;
+  taskForce?: TaskForceEntity;
 }

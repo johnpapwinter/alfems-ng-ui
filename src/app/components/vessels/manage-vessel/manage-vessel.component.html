@@ -1,0 +1,23 @@
+<div class="p-card">
+  <p-dropdown
+    [options]="vesselRegistry"
+    [(ngModel)]="vessel"
+    placeholder="Select Vessel"
+    [filter]="true"
+    filterBy="name"
+  >
+    <ng-template pTemplate="item" let-ship>{{ ship.name }}</ng-template>
+    <ng-template pTemplate="selectedItem" let-ship>{{ ship.name }}</ng-template>
+  </p-dropdown>
+  <div *ngIf="vessel">
+    <p-card>
+      <div>HUD: {{ vessel.hud }}</div>
+      <div>Name: {{ vessel.name }}</div>
+      <div>Type: {{ vessel.type }}</div>
+      <div>Crew: {{ vessel.crew }}</div>
+      <div>Passengers: {{ vessel.passengers }}</div>
+      <div>Fighter: {{ vessel.fighters }}</div>
+      <div>TaskForce Assigned: {{ vessel.taskForce?.name! }}</div>
+    </p-card>
+  </div>
+</div>

@@ -19,8 +19,12 @@ export class ApiService {
     return this.http.get<PageDto>(`${this.shipRootUrl}/?page=${page}&limit=${limit}&sortBy=${sortBy}&asc=${sortOrder}`);
   }
 
+  getAllVessels() {
+    return this.http.get<ShipEntity[]>(`${this.shipRootUrl}/all`);
+  }
+
   getVesselById(id: string) {
-    return this.http.get<ShipEntity>(`${this.shipRootUrl}/${id}`);
+    return this.http.get<ShipEntity>(`${this.shipRootUrl}/name/${id}`);
   }
 
   addVessel(vessel: ShipDto) {

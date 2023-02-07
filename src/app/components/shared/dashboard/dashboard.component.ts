@@ -22,27 +22,6 @@ export class DashboardComponent implements OnInit {
         routerLink: ['/home'],
       },
       {
-        label: 'Vessels',
-        icon: 'pi pi-fw pi-folder',
-        items: [
-          {
-            label: 'Vessel Registry',
-            icon: 'pi pi-fw pi-list',
-            routerLink: ['/registry'],
-          },
-          {
-            label: 'Add Vessel',
-            icon: 'pi pi-fw pi-pencil',
-            routerLink: ['/add-ship'],
-          },
-          {
-            label: 'Manage Vessel',
-            icon: 'pi pi-fw pi-id-card',
-            routerLink: ['/manage-vessel'],
-          }
-        ],
-      },
-      {
         label: 'Task Groups',
         icon: 'pi pi-fw pi-folder',
         items: [
@@ -60,6 +39,27 @@ export class DashboardComponent implements OnInit {
             label: 'Manage Task Group',
             icon: 'pi pi-fw pi-id-card',
             routerLink: ['/manage-task-group'],
+          }
+        ],
+      },
+      {
+        label: 'Vessels',
+        icon: 'pi pi-fw pi-folder',
+        items: [
+          {
+            label: 'Vessel Registry',
+            icon: 'pi pi-fw pi-list',
+            routerLink: ['/registry'],
+          },
+          {
+            label: 'Add Vessel',
+            icon: 'pi pi-fw pi-pencil',
+            routerLink: ['/add-ship'],
+          },
+          {
+            label: 'Manage Vessel',
+            icon: 'pi pi-fw pi-id-card',
+            routerLink: ['/manage-vessel'],
           }
         ],
       },
