@@ -44,6 +44,12 @@ export class AuthService {
     }
   }
 
+  isAdmin(): boolean {
+    const token: JwtUserDto = jwtDecode(this.getToken());
+    return token.roles.includes('admin');
+    // return false;
+  }
+
   removeToken(): void {
     localStorage.clear();
   }

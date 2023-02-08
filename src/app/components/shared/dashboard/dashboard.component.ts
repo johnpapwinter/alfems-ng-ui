@@ -34,11 +34,13 @@ export class DashboardComponent implements OnInit {
             label: 'Add Task Group',
             icon: 'pi pi-fw pi-pencil',
             routerLink: ['/add-task-group'],
+            visible: this.authService.isAdmin(),
           },
           {
             label: 'Manage Task Group',
             icon: 'pi pi-fw pi-id-card',
             routerLink: ['/manage-task-group'],
+            visible: this.authService.isAdmin(),
           }
         ],
       },
@@ -55,11 +57,13 @@ export class DashboardComponent implements OnInit {
             label: 'Add Vessel',
             icon: 'pi pi-fw pi-pencil',
             routerLink: ['/add-ship'],
+            visible: this.authService.isAdmin(),
           },
           {
             label: 'Manage Vessel',
             icon: 'pi pi-fw pi-id-card',
             routerLink: ['/manage-vessel'],
+            visible: this.authService.isAdmin(),
           }
         ],
       },
