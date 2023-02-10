@@ -2,10 +2,10 @@
   <div class="flex justify-content-center align-content-center align-items-stretch flex-wrap">
     <form class="" [formGroup]="loginForm" (ngSubmit)="login()">
       <div class="border-round m-4 justify-content-center align-items-center">
-        <h2 class="text-center">LOGIN</h2>
+        <h2 class="text-center">ALLIANCE FLEET MANAGEMENT</h2>
       </div>
-      <div class="p-float-label border-round m-4 align-items-center">
-        <input id="float-input" type="text" pInputText formControlName="username" required>
+      <div class="p-float-label border-round m-4 align-items-stretch">
+        <input id="float-input" class="w-full" type="text" pInputText formControlName="username" required>
         <label for="float-input">Username</label>
         <div class="text-red-500"
                 *ngIf="(loginFormControl.username.touched)
@@ -13,7 +13,7 @@
         Please enter a username</div>
       </div>
       <div class="p-float-label border-round m-4 align-items-center">
-        <input id="password" type="password" pInputText formControlName="password" required>
+        <input id="password" type="password" class="w-full" pInputText formControlName="password" required>
         <label for="password">Password</label>
         <div class="text-red-500"
               *ngIf="(loginFormControl.password.touched)

@@ -11,8 +11,8 @@
   </p-dropdown>
   <div *ngIf="vessel">
     <p-card>
+      <h3>{{ vessel.name }}</h3>
       <div>HUD: {{ vessel.hud }}</div>
-      <div>Name: {{ vessel.name }}</div>
       <div>Type: {{ vessel.type }}</div>
       <div>Crew: {{ vessel.crew }}</div>
       <div>Passengers: {{ vessel.passengers }}</div>

@@ -29,11 +29,11 @@ export class RegistryComponent implements OnInit {
   sortOrder: number = 1;
   fieldName: string | null = null;
   fieldType: string | null = null;
-  fieldFtr: string | null = null;
+  fieldFtr: boolean | null = null;
   searchDto: SearchDto = {
     name: this.fieldName,
     type: this.fieldType,
-    fighters: null,
+    fighters: this.fieldFtr,
   }
 
 
@@ -75,13 +75,10 @@ export class RegistryComponent implements OnInit {
   }
 
   onSearch() {
-    this.searchDto.name = this.fieldName;
-    this.searchDto.type = this.fieldType;
-    if (this.fieldFtr !== null) {
-      this.searchDto.fighters = (this.fieldFtr === 'true');
-    }
+    this.searchDto.name = this.fieldName === '' ? null : this.fieldName;
+    this.searchDto.type = this.fieldType === '' ? null : this.fieldType;
+    this.searchDto.fighters = this.fieldFtr;
     console.log(this.searchDto);
-    console.log(typeof this.searchDto.fighters);
     this.apiService.searchVessels(this.searchDto, this.page.meta.currentPage, this.rowsPerPage, this.sortBy, this.sortOrder)
       .subscribe(res => {
         this.page = res;
