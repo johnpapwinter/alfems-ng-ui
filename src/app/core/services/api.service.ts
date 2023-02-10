@@ -5,6 +5,7 @@ import {PageDto} from "../domain/dto/page.dto";
 import {ShipDto} from "../domain/dto/ship.dto";
 import {TaskForceDto} from "../domain/dto/task-force.dto";
 import {TaskForceEntity} from "../domain/entities/task-force.entity";
+import {SearchDto} from "../domain/dto/search.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,12 @@ export class ApiService {
 
   getRegistry(page: number, limit: number, sortBy?: string, sortOrder?: number) {
     return this.http.get<PageDto>(`${this.shipRootUrl}/?page=${page}&limit=${limit}&sortBy=${sortBy}&asc=${sortOrder}`);
+  }
+
+  searchVessels(searchDto: SearchDto, page: number, limit: number, sortBy?: string, sortOrder?: number) {
+    return this.http.post<PageDto>(
+      `${this.shipRootUrl}/search-dynamic/?page=${page}&limit=${limit}&sortBy=${sortBy}&asc=${sortOrder}`,
+      searchDto);
   }
 
   getAllVessels() {

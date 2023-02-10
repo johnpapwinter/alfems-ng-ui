@@ -52,6 +52,10 @@ export class ManageTaskGroupComponent implements OnInit {
   }
 
   onChoice(event: any) {
+    this.totalCrew = 0;
+    this.totalPass = 0;
+    this.totalFtr = 0;
+
     this.taskForce.ships.forEach(value => {
       this.totalCrew = this.totalCrew + value.crew;
       this.totalPass = this.totalPass + value.passengers;

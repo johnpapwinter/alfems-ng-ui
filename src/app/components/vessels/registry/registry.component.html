@@ -1,4 +1,28 @@
 <div class="p-card">
+  <div class="col-12 flex">
+    <div>
+      <input [(ngModel)]="fieldName" type="text" pInputText placeholder="Name">
+    </div>
+    <div>
+      <input [(ngModel)]="fieldType" type="text" pInputText placeholder="Type">
+    </div>
+    <div>
+      <div class="field-radiobutton mb-0">
+        <p-radioButton name="ftr" value="true" [(ngModel)]="fieldFtr" id="ftrTrue"></p-radioButton>
+        <label for="ftrTrue">Complement</label>
+      </div>
+      <div class="field-radiobutton mt-0">
+        <p-radioButton name="ftr" value="false" [(ngModel)]="fieldFtr" id="ftrFalse"></p-radioButton>
+        <label for="ftrFalse">No Complement</label>
+      </div>
+    </div>
+    <div class="flex flex-row align-content-center">
+      <button (click)="onSearch()" pButton pRipple label="Search"></button>
+      <button (click)="onClearSearch()" pButton icon="pi pi-filter-slash" class="reset" pTooltip="Clear" tooltipPosition="bottom" iconPos="right"></button>
+    </div>
+  </div>
+</div>
+<div class="p-card">
   <p-table [value]="page.items"
            [scrollable]="true"
            scrollHeight="500px"

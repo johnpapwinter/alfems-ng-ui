@@ -39,6 +39,7 @@ import { ManageTaskGroupComponent } from './components/task-groups/manage-task-g
 import { ManageVesselComponent } from './components/vessels/manage-vessel/manage-vessel.component';
 import {AutoCompleteModule} from "primeng/autocomplete";
 import {OverlayPanelModule} from "primeng/overlaypanel";
+import {RadioButtonModule} from "primeng/radiobutton";
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import {OverlayPanelModule} from "primeng/overlaypanel";
         TieredMenuModule,
         AvatarModule,
         AutoCompleteModule,
-        OverlayPanelModule
+        OverlayPanelModule,
+        RadioButtonModule
     ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

@@ -4,6 +4,8 @@ import {ApiService} from "../../../core/services/api.service";
 import {PageDto} from "../../../core/domain/dto/page.dto";
 import {Router} from "@angular/router";
 import {ConfirmationService, MessageService} from "primeng/api";
+import {SearchDto} from "../../../core/domain/dto/search.dto";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-registry',
@@ -25,6 +27,15 @@ export class RegistryComponent implements OnInit {
   }
   sortBy: string = 'id';
   sortOrder: number = 1;
+  fieldName: string | null = null;
+  fieldType: string | null = null;
+  fieldFtr: string | null = null;
+  searchDto: SearchDto = {
+    name: this.fieldName,
+    type: this.fieldType,
+    fighters: null,
+  }
+
 
   constructor(private router: Router,
               private apiService: ApiService,
@@ -33,10 +44,15 @@ export class RegistryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.apiService.getRegistry(this.page.meta.currentPage + 1, this.rowsPerPage, this.sortBy, this.sortOrder)
+    // this.apiService.getRegistry(this.page.meta.currentPage + 1, this.rowsPerPage, this.sortBy, this.sortOrder)
+    //   .subscribe(res => {
+    //   this.page = res;
+    // })
+
+    this.apiService.searchVessels(this.searchDto, this.page.meta.currentPage + 1, this.rowsPerPage, this.sortBy, this.sortOrder)
       .subscribe(res => {
-      this.page = res;
-    })
+        this.page = res;
+      })
   }
 
   loadPage(event: any) {
@@ -47,11 +63,41 @@ export class RegistryComponent implements OnInit {
     this.sortBy = event.sortField != undefined ? event.sortField : 'id';
     this.sortOrder = event.sortOrder;
 
-    this.apiService.getRegistry(this.page.meta.currentPage, this.rowsPerPage, this.sortBy, this.sortOrder)
+    // this.apiService.getRegistry(this.page.meta.currentPage, this.rowsPerPage, this.sortBy, this.sortOrder)
+    //   .subscribe(res => {
+    //   this.page = res;
+    // })
+    this.apiService.searchVessels(this.searchDto, this.page.meta.currentPage, this.rowsPerPage, this.sortBy, this.sortOrder)
       .subscribe(res => {
-      this.page = res;
-    })
+        this.page = res;
+      })
 
+  }
+
+  onSearch() {
+    this.searchDto.name = this.fieldName;
+    this.searchDto.type = this.fieldType;
+    if (this.fieldFtr !== null) {
+      this.searchDto.fighters = (this.fieldFtr === 'true');
+    }
+    console.log(this.searchDto);
+    console.log(typeof this.searchDto.fighters);
+    this.apiService.searchVessels(this.searchDto, this.page.meta.currentPage, this.rowsPerPage, this.sortBy, this.sortOrder)
+      .subscribe(res => {
+        this.page = res;
+      })
+
+  }
+
+  onClearSearch() {
+    this.fieldName = null;
+    this.fieldType = null;
+    this.fieldFtr = null;
+    this.searchDto = { name: null, type: null, fighters: null };
+    this.apiService.searchVessels(this.searchDto, this.page.meta.currentPage, this.rowsPerPage, this.sortBy, this.sortOrder)
+      .subscribe(res => {
+        this.page = res;
+      })
   }
 
   onEdit(ship: ShipEntity) {
