@@ -13,10 +13,12 @@ import {AddTaskGroupComponent} from "./components/task-groups/add-task-group/add
 import {EditTaskGroupComponent} from "./components/task-groups/edit-task-group/edit-task-group.component";
 import {ManageTaskGroupComponent} from "./components/task-groups/manage-task-group/manage-task-group.component";
 import {ManageVesselComponent} from "./components/vessels/manage-vessel/manage-vessel.component";
+import {RegisterComponent} from "./components/shared/register/register.component";
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: '', redirectTo: '/home', pathMatch: "full" },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'edit/:id', component: EditShipComponent, canActivate: [AuthGuard] },

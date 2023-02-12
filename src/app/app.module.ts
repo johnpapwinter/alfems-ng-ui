@@ -40,6 +40,7 @@ import { ManageVesselComponent } from './components/vessels/manage-vessel/manage
 import {AutoCompleteModule} from "primeng/autocomplete";
 import {OverlayPanelModule} from "primeng/overlaypanel";
 import {RadioButtonModule} from "primeng/radiobutton";
+import { RegisterComponent } from './components/shared/register/register.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import {RadioButtonModule} from "primeng/radiobutton";
     EditTaskGroupComponent,
     TaskGroupListComponent,
     ManageTaskGroupComponent,
-    ManageVesselComponent
+    ManageVesselComponent,
+    RegisterComponent
   ],
     imports: [
         BrowserModule,

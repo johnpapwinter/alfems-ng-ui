@@ -1,0 +1,42 @@
+<p-card>
+  <div class="flex justify-content-center align-content-center align-items-stretch flex-wrap">
+    <form class="" [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+      <div class="border-round m-4 justify-content-center align-items-center">
+        <h2 class="text-center">ALFLEMS REGISTRATION</h2>
+      </div>
+      <div class="p-float-label border-round m-4 align-items-stretch">
+        <input id="float-input" class="w-full" type="text" pInputText formControlName="username" required>
+        <label for="float-input">Username</label>
+        <div class="text-red-500"
+             *ngIf="(registerFormControl.username.touched)
+                && registerFormControl.username.errors?.['required']">
+          Please enter a username</div>
+      </div>
+      <div class="p-float-label border-round m-4 align-items-center">
+        <input id="password" type="password" class="w-full" pInputText formControlName="password" required>
+        <label for="password">Password</label>
+        <div class="text-red-500"
+             *ngIf="(registerFormControl.password.touched)
+              && registerFormControl.password.errors?.['required']">
+          Please enter a password
+        </div>
+      </div>
+      <div class="p-float-label border-round m-4 align-items-center">
+        <input id="confirm-password" type="password" class="w-full" pInputText formControlName="confirmPassword" required>
+        <label for="confirm-password">Confirm Password</label>
+        <div class="text-red-500"
+             *ngIf="(registerFormControl.confirmPassword.touched)
+              && registerFormControl.confirmPassword.errors?.['required']">
+          Please confirm your password
+        </div>
+      </div>
+      <div class="border-round m-4 align-items-stretch flex justify-content-center">
+        <button class="p-button w-full justify-content-center align-items-center"
+                type="submit" pButton [disabled]="!registrationForm.valid">
+          <span class="text-center">Register</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</p-card>
+

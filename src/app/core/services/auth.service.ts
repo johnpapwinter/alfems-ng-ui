@@ -5,6 +5,7 @@ import {JwtResponseDto} from "../domain/dto/jwt.response.dto";
 import {LoginRequestDto} from "../domain/dto/login.request.dto";
 import {JwtUserDto} from "../domain/dto/jwt.user.dto";
 import jwtDecode from "jwt-decode";
+import {SignupDto} from "../domain/dto/signup.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,13 @@ export class AuthService {
   loginRequest(credentials: LoginRequestDto) {
     this.http.post<JwtResponseDto>(`${this.rootUrl}/login`, credentials).subscribe(res => {
       this.storeToken(res.access_token);
-      this.router.navigateByUrl('home')
+      this.router.navigateByUrl('home');
+    })
+  }
+
+  signupRequest(signUpRequest: SignupDto) {
+    this.http.post(`${this.rootUrl}/signup`, signUpRequest).subscribe(res => {
+      this.router.navigateByUrl('login');
     })
   }
 
