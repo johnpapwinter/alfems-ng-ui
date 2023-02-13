@@ -58,16 +58,20 @@
         <td>{{ ship.passengers }}</td>
         <td>{{ ship.fighters }}</td>
         <td class="w-1rem">
-          <button pButton pRipple icon="pi pi-search"
-                  type="button" class="p-button"
-                  (click)="onEdit(ship)">
-          </button>
+          <div *ngIf="authService.isAdmin()">
+            <button pButton pRipple icon="pi pi-search"
+                    type="button" class="p-button"
+                    (click)="onEdit(ship)">
+            </button>
+          </div>
         </td>
         <td class="w-1rem">
-          <button pButton pRipple icon="pi pi-trash"
-                  type="button" class="p-button p-button-danger"
-                  (click)="onDelete(ship.id)">
-          </button>
+          <div *ngIf="authService.isAdmin()">
+            <button pButton pRipple icon="pi pi-trash"
+                    type="button" class="p-button p-button-danger"
+                    (click)="onDelete(ship.id)">
+            </button>
+          </div>
         </td>
       </tr>
       <tr *ngIf="page.items.length === 0">

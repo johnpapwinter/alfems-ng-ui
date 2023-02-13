@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {ApiService} from "../../../core/services/api.service";
 import {ConfirmationService, MessageService} from "primeng/api";
 import {TaskForceEntity} from "../../../core/domain/entities/task-force.entity";
+import {AuthService} from "../../../core/services/auth.service";
 
 @Component({
   selector: 'app-task-group-list',
@@ -26,6 +27,7 @@ export class TaskGroupListComponent implements OnInit{
 
   constructor(private router: Router,
               private apiService: ApiService,
+              public authService: AuthService,
               private confirmationService: ConfirmationService,
               private messageService: MessageService) {
   }

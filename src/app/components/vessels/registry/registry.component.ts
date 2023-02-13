@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import {ConfirmationService, MessageService} from "primeng/api";
 import {SearchDto} from "../../../core/domain/dto/search.dto";
 import {FormControl, FormGroup} from "@angular/forms";
+import {AuthService} from "../../../core/services/auth.service";
 
 @Component({
   selector: 'app-registry',
@@ -39,6 +40,7 @@ export class RegistryComponent implements OnInit {
 
   constructor(private router: Router,
               private apiService: ApiService,
+              public authService: AuthService,
               private confirmationService: ConfirmationService,
               private messageService: MessageService) {
   }
@@ -78,7 +80,10 @@ export class RegistryComponent implements OnInit {
     this.searchDto.name = this.fieldName === '' ? null : this.fieldName;
     this.searchDto.type = this.fieldType === '' ? null : this.fieldType;
     this.searchDto.fighters = this.fieldFtr;
-    console.log(this.searchDto);
+
+    this.page.meta.currentPage = 1;
+    this.rowsPerPage = 5;
+
     this.apiService.searchVessels(this.searchDto, this.page.meta.currentPage, this.rowsPerPage, this.sortBy, this.sortOrder)
       .subscribe(res => {
         this.page = res;
@@ -90,6 +95,10 @@ export class RegistryComponent implements OnInit {
     this.fieldName = null;
     this.fieldType = null;
     this.fieldFtr = null;
+
+    this.page.meta.currentPage = 1;
+    this.rowsPerPage = 5;
+
     this.searchDto = { name: null, type: null, fighters: null };
     this.apiService.searchVessels(this.searchDto, this.page.meta.currentPage, this.rowsPerPage, this.sortBy, this.sortOrder)
       .subscribe(res => {

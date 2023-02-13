@@ -35,17 +35,21 @@
         <td>{{ taskGroup.name }}</td>
         <td>{{ taskGroup.ships.length }}</td>
         <td class="w-1rem">
-          <button pButton pRipple icon="pi pi-search"
-                  type="button" class="p-button"
-                  (click)="onEdit(taskGroup)">
+          <div *ngIf="authService.isAdmin()">
+            <button pButton pRipple icon="pi pi-search"
+                    type="button" class="p-button"
+                    (click)="onEdit(taskGroup)">
 
-          </button>
+            </button>
+          </div>
         </td>
         <td class="w-1rem">
-          <button pButton pRipple icon="pi pi-trash"
-                  type="button" class="p-button p-button-danger"
-                  (click)="onDelete(taskGroup.id)">
-          </button>
+          <div *ngIf="authService.isAdmin()">
+            <button pButton pRipple icon="pi pi-trash"
+                    type="button" class="p-button p-button-danger"
+                    (click)="onDelete(taskGroup.id)">
+            </button>
+          </div>
         </td>
       </tr>
       <tr *ngIf="page.items.length === 0">
@@ -76,11 +80,15 @@
                     <td>{{ships.crew}}</td>
                     <td>{{ships.passengers}}</td>
                     <td>{{ships.fighters}}</td>
-                    <td><button type="button"
+                    <td>
+                      <div *ngIf="authService.isAdmin()">
+                        <button type="button"
                                 pButton pRipple icon="pi pi-minus"
                                 class="p-button-warning p-button-rounded p-button-sm"
                                 (click)="onRemoveShip(ships.id)">
-                    </button></td>
+                        </button>
+                      </div>
+                    </td>
                   </tr>
                 </ng-template>
                 <ng-template pTemplate="emptymessage">
