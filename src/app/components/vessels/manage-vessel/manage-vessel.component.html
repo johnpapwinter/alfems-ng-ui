@@ -1,4 +1,4 @@
-<div class="p-card">
+<div class="p-card mb-3 p-3">
   <p-dropdown
     [options]="vesselRegistry"
     [(ngModel)]="vessel"
@@ -10,7 +10,7 @@
     <ng-template pTemplate="selectedItem" let-ship>{{ ship.name }}</ng-template>
   </p-dropdown>
   <div *ngIf="vessel">
-    <p-card>
+<!--    <p-card>-->
       <h3>{{ vessel.name }}</h3>
       <div>HUD: {{ vessel.hud }}</div>
       <div>Type: {{ vessel.type }}</div>
@@ -18,6 +18,6 @@
       <div>Passengers: {{ vessel.passengers }}</div>
       <div>Fighters: {{ vessel.fighters }}</div>
       <div>TaskForce: {{ vessel.taskForce?.name! }}</div>
-    </p-card>
+<!--    </p-card>-->
   </div>
 </div>
