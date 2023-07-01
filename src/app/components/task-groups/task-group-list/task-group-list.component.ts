@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { saveAs } from "file-saver";
 import {PageDto} from "../../../core/domain/dto/page.dto";
 import {Router} from "@angular/router";
 import {ApiService} from "../../../core/services/api.service";
@@ -85,6 +86,17 @@ export class TaskGroupListComponent implements OnInit{
       reject: () => {
       }
     })
+  }
+
+  onExportTaskForce(id: string) {
+    this.apiService.exportTaskForceToExcel(id).subscribe(
+      res => {
+        let filename = res.headers.get('Content-Disposition')?.split('filename')[1].split('=')[1]
+          .trim().replace(/"/g, "");
+
+        saveAs(res?.body!, filename);
+      }
+    )
   }
 
 }

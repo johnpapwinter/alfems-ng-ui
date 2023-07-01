@@ -24,6 +24,8 @@
     "primeflex": "^3.3.0",
     "primeicons": "^6.0.1",
     "primeng": "^15.1.1",
+    "@types/file-saver": "^2.0.5",
+    "file-saver": "^2.0.5",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

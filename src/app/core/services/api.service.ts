@@ -90,4 +90,9 @@ export class ApiService {
   removeVesselFromTaskForce(taskForceId: string, vesselId: string) {
     return this.http.put(`${this.taskGroupRootUrl}/remove/${taskForceId}/${vesselId}`, null);
   }
+
+  exportTaskForceToExcel(taskForceId: string) {
+    return this.http.get(`${this.taskGroupRootUrl}/${taskForceId}/export`,
+      { observe: 'response', responseType: 'blob' });
+  }
 }
