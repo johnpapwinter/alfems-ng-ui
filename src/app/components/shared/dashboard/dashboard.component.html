@@ -1,7 +1,9 @@
 <p-menubar *ngIf="authService.isLoggedIn()" [model]="items">
   <ng-template pTemplate="start">
     <div class="flex align-items-center mr-2">
-      <img src="assets/alliance_logo.png" class="h-3rem">
+      <a [routerLink]="['home']">
+        <img src="assets/alliance_logo.png" class="h-3rem">
+      </a>
     </div>
   </ng-template>
   <ng-template pTemplate="end">
